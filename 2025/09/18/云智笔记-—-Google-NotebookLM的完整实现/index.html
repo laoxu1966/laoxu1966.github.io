@@ -9,7 +9,7 @@
   <meta name="description" content="网址：https:&#x2F;&#x2F;www.mynotebook.com.cn 这是我开发的第二个AI应用程序，之前开发的“基于LLM的知识管理系统”上线后，获得业界广泛好评，但鉴于LLM的飞速发展，如果只是开发一个智能体来做大模型的输入输出已经没有意义，于是，我开发了“云智笔记”前后端程序，完整实现了Google NotebookLM的功能，从而使中国用户也能充分利用Google Gemini在多模态领域的巨">
 <meta property="og:type" content="article">
 <meta property="og:title" content="云智笔记 — Google NotebookLM的完整实现">
-<meta property="og:url" content="http://laoxu1966.github.io/2025/09/18/%E6%9D%B0%E7%B1%B3%E5%A5%88%E7%AC%94%E8%AE%B0%E6%9C%AC-%E2%80%94-Google-NotebookLM%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:url" content="http://laoxu1966.github.io/2025/09/18/%E4%BA%91%E6%99%BA%E7%AC%94%E8%AE%B0-%E2%80%94-Google-NotebookLM%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="佛经今译">
 <meta property="og:description" content="网址：https:&#x2F;&#x2F;www.mynotebook.com.cn 这是我开发的第二个AI应用程序，之前开发的“基于LLM的知识管理系统”上线后，获得业界广泛好评，但鉴于LLM的飞速发展，如果只是开发一个智能体来做大模型的输入输出已经没有意义，于是，我开发了“云智笔记”前后端程序，完整实现了Google NotebookLM的功能，从而使中国用户也能充分利用Google Gemini在多模态领域的巨">
 <meta property="og:locale" content="zh_CN">
@@ -81,9 +81,9 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-杰米奈笔记本-—-Google-NotebookLM的完整实现" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-云智笔记-—-Google-NotebookLM的完整实现" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/09/18/%E6%9D%B0%E7%B1%B3%E5%A5%88%E7%AC%94%E8%AE%B0%E6%9C%AC-%E2%80%94-Google-NotebookLM%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0/" class="article-date">
+    <a href="/2025/09/18/%E4%BA%91%E6%99%BA%E7%AC%94%E8%AE%B0-%E2%80%94-Google-NotebookLM%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0/" class="article-date">
   <time class="dt-published" datetime="2025-09-18T10:20:12.000Z" itemprop="datePublished">2025-09-18</time>
 </a>
     
@@ -110,16 +110,16 @@
 <h4 id="安全事项"><a href="#安全事项" class="headerlink" title="安全事项"></a>安全事项</h4><p><strong>内容授权</strong>：上传或引用的任何内容，用户须确保对该内容拥有合法使用权，或已取得权利人的明确授权，否则，可能引发商业纠纷。<br><strong>人工复核</strong>：对于生成的文档，如需对外发布、对外沟通或签署具有法律效力的文件，必须进行人工复核，确认不存在误导、侵权或不当的内容。<br><strong>合规管控</strong>：涉密或需要强监管的资料，用户应具备合规和管控能力，包括分级与权限、数据留存与审计等；否则，不建议使用本程序。</p>
 <h4 id="风险提示"><a href="#风险提示" class="headerlink" title="风险提示"></a>风险提示</h4><p><strong>监管政策</strong>：针对生成式人工智能应用及相关业务的监管政策、合规要求随时可能调整或收紧，可能影响本程序的可用性。<br><strong>远端服务</strong>：远端可能因自身规则、风控、容量等原因实施限流、降智、封禁、暂停或终止服务，不保证程序能持续稳定地运行。<br><strong>充值不退</strong>：因上述监管政策变化及远端服务商的行为，导致本程序功能不可用时，已充值金额不予退款，充值即视为用户已知悉风险。</p>
 <h4 id="账号限额"><a href="#账号限额" class="headerlink" title="账号限额"></a>账号限额</h4><p><strong>切换后端</strong>：一旦触及账号限额，当天就无法再生成文档，这种情况下，用户可等到第二天限额重置，如果着急，也可切换到其他后端继续操作。<br><strong>后端独立</strong>：每个后端的数据是独立的，当用户切换到新的后端，需要重新创建笔记本、上传数据源并生成出版物，这个过程将重新计费。<br><strong>资源回收</strong>：为了提高账号资源的利用率，笔记本的生命周期限定为14天，超过14天的笔记本将被系统回收，建议用户在14天内完成所有操作。</p>
-<h4 id="系统集成"><a href="#系统集成" class="headerlink" title="系统集成"></a>系统集成</h4><p><strong>后端接口</strong>：可为企业提供完整的后端API接口，这样，企业就可以将Google NotebookLM的能力集成到企业的信息系统，使AI直接进入企业流程。<br><strong>接口简便</strong>：后端接口基于FastAPI 框架构建，采用令牌（Access Token）实现鉴权，企业的信息系统只需在 HTTP 请求头中携带令牌即可。<br><strong>技术支持</strong>：集成过程中如果有任何问题，可发邮件到 <a href="mailto:&#108;&#x61;&#x6f;&#x78;&#x75;&#49;&#57;&#x36;&#54;&#x40;&#104;&#111;&#116;&#109;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">laoxu1966@hotmail.com</a> 或致电 010-62975562&#x2F;13601058196(微信同号)</p>
+<h4 id="系统集成"><a href="#系统集成" class="headerlink" title="系统集成"></a>系统集成</h4><p><strong>后端接口</strong>：可为企业提供完整的后端API接口，这样，企业就可以将Google NotebookLM的能力集成到企业的信息系统，使AI直接进入企业流程。<br><strong>接口简便</strong>：后端接口基于FastAPI 框架构建，采用令牌（Access Token）实现鉴权，企业的信息系统只需在 HTTP 请求头中携带令牌即可。<br><strong>技术支持</strong>：集成过程中如果有任何问题，可发邮件到 <a href="mailto:&#x6c;&#97;&#111;&#120;&#117;&#x31;&#x39;&#x36;&#54;&#x40;&#104;&#111;&#116;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">laoxu1966@hotmail.com</a> 或致电 010-62975562&#x2F;13601058196(微信同号)</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://laoxu1966.github.io/2025/09/18/%E6%9D%B0%E7%B1%B3%E5%A5%88%E7%AC%94%E8%AE%B0%E6%9C%AC-%E2%80%94-Google-NotebookLM%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0/" data-id="cuidu2mf8aTutwPTuzEsv5_S0" data-title="云智笔记 — Google NotebookLM的完整实现" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://laoxu1966.github.io/2025/09/18/%E4%BA%91%E6%99%BA%E7%AC%94%E8%AE%B0-%E2%80%94-Google-NotebookLM%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0/" data-id="cuid7PmGFBT8PmoHYsf-ntWMh" data-title="云智笔记 — Google NotebookLM的完整实现" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
-        <a href="/2025/09/18/%E6%9D%B0%E7%B1%B3%E5%A5%88%E7%AC%94%E8%AE%B0%E6%9C%AC-%E2%80%94-Google-NotebookLM%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0/#comments" class="article-comment-link">
-          <span class="post-comments-count valine-comment-count fa fa-comment" data-xid="/2025/09/18/%E6%9D%B0%E7%B1%B3%E5%A5%88%E7%AC%94%E8%AE%B0%E6%9C%AC-%E2%80%94-Google-NotebookLM%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0/" itemprop="commentCount"></span>
+        <a href="/2025/09/18/%E4%BA%91%E6%99%BA%E7%AC%94%E8%AE%B0-%E2%80%94-Google-NotebookLM%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0/#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count fa fa-comment" data-xid="/2025/09/18/%E4%BA%91%E6%99%BA%E7%AC%94%E8%AE%B0-%E2%80%94-Google-NotebookLM%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0/" itemprop="commentCount"></span>
           留言
         </a>
       
@@ -196,7 +196,7 @@
       <ul>
         
           <li>
-            <a href="/2025/09/18/%E6%9D%B0%E7%B1%B3%E5%A5%88%E7%AC%94%E8%AE%B0%E6%9C%AC-%E2%80%94-Google-NotebookLM%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0/">云智笔记 — Google NotebookLM的完整实现</a>
+            <a href="/2025/09/18/%E4%BA%91%E6%99%BA%E7%AC%94%E8%AE%B0-%E2%80%94-Google-NotebookLM%E7%9A%84%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0/">云智笔记 — Google NotebookLM的完整实现</a>
           </li>
         
           <li>
